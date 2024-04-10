@@ -1,18 +1,14 @@
 import cv2
 import numpy as np
-import torch
-import torch.nn.functional as F
-import torchvision.transforms as transforms
-from torch.autograd import Variable
 
 
 class GradCam:
-    def __init__(self, model):
+    def __init__(self, model, target):
         self.model = model.eval()
         self.feature = None
         self.gradient = None
         self.handlers = []
-        self.target = model.blocks[-1].norm1
+        self.target = target
         self._get_hook()
 
     def _get_features_hook(self, module, input, output):
@@ -20,6 +16,11 @@ class GradCam:
 
     def _get_grads_hook(self, module, input_grad, output_grad):
         self.gradient = self.reshape_transform(output_grad)
+
+        def _store_grad(grad):  
+            self.gradient = self.reshape_transform(grad)
+
+        output_grad.register_hook(_store_grad)
     
     def _get_hook(self):
         self.target.register_forward_hook(self._get_features_hook)
@@ -45,7 +46,6 @@ class GradCam:
 
         gradient = self.gradient[0].cpu().data.numpy()
         weight = np.mean(gradient, axis=(1, 2))
-
         feature = self.feature[0].cpu().data.numpy()
 
         cam = feature * weight[:, np.newaxis, np.newaxis]
