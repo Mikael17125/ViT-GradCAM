@@ -4,8 +4,7 @@ import numpy as np
 class GradCam:
     """
     Gradient-weighted Class Activation Mapping (Grad-CAM) implementation for visualizing
-    important regions in an input image based on the activations of a specific target layer
-    in a convolutional neural network (CNN).
+    important regions in an input image based on the activations of a specific target layer.
 
     Args:
         model (torch.nn.Module): The trained neural network model.
@@ -15,7 +14,6 @@ class GradCam:
         model (torch.nn.Module): The trained neural network model.
         feature (torch.Tensor): Feature maps extracted from the target layer.
         gradient (torch.Tensor): Gradients of the target layer's output with respect to model's output.
-        handlers (list): List to hold hook handlers for target layer's feature maps and gradients.
         target (torch.nn.Module): The target layer in the model for which Grad-CAM will be computed.
     """
 
@@ -23,7 +21,6 @@ class GradCam:
         self.model = model.eval()
         self.feature = None
         self.gradient = None
-        self.handlers = []
         self.target = target
         self._get_hook()
 
@@ -84,6 +81,11 @@ class GradCam:
         weight = np.mean(gradient, axis=(1, 2))
         feature = self.feature[0].cpu().data.numpy()
 
+        # Theorem for Grad-CAM computation:
+        # Grad-CAM = Σ(∂L/∂A_k * A_k)
+        # Where:
+        # ∂L/∂A_k : Gradient of the target class activation with respect to the feature maps of the target layer.
+        # A_k : Feature maps of the target layer.
         cam = feature * weight[:, np.newaxis, np.newaxis]
         cam = np.sum(cam, axis=0) 
         cam = np.maximum(cam, 0) 
