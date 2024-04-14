@@ -35,6 +35,11 @@ This repository contains code for implementing Grad-CAM (Gradient-weighted Class
 - `both.png`: Sample input image (replace with your own image).
 - `result.jpg`: Output Grad-CAM visualization.
 
+## Input and Output
+| Input Image | Output Image |
+|-------------|--------------|
+| ![Input Image](both.png) | ![Output Image](result.jpg) |
+
 ## References
 - Ramprasaath R. Selvaraju, Michael Cogswell, Abhishek Das, Ramakrishna Vedantam, Devi Parikh, and Dhruv Batra. "Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization." In *Proceedings of the IEEE International Conference on Computer Vision (ICCV)*, 2017.
 
