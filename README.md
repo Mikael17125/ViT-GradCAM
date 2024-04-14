@@ -1,5 +1,3 @@
-Sure, here's a README.md for your code:
-
 ```markdown
 # Grad-CAM Implementation
 
