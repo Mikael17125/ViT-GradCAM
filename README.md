@@ -19,11 +19,6 @@ This repository contains code for implementing Grad-CAM (Gradient-weighted Class
    cd grad-cam
    ```
 
-2. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
 ## Usage
 1. Ensure that your image is named `both.png` and placed in the root directory of the repository.
 
@@ -39,9 +34,6 @@ This repository contains code for implementing Grad-CAM (Gradient-weighted Class
 - `gradcam.py`: Python module containing the `GradCam` class, which implements the Grad-CAM algorithm.
 - `both.png`: Sample input image (replace with your own image).
 - `result.jpg`: Output Grad-CAM visualization.
-
-## Credits
-- The `gradcam.py` module is adapted from the implementation provided in [this GitHub repository](https://github.com/vickyliin/gradcam_plus_plus-pytorch), with modifications for compatibility and clarity.
 
 ## References
 - Ramprasaath R. Selvaraju, Michael Cogswell, Abhishek Das, Ramakrishna Vedantam, Devi Parikh, and Dhruv Batra. "Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization." In *Proceedings of the IEEE International Conference on Computer Vision (ICCV)*, 2017.
