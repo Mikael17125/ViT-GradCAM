@@ -1,4 +1,3 @@
-```markdown
 # Grad-CAM Implementation
 
 This repository contains code for implementing Grad-CAM (Gradient-weighted Class Activation Mapping) in PyTorch. Grad-CAM is a technique for visualizing the regions of an image that are important for predicting a particular class. It works by leveraging the gradients of a target class with respect to the ViT Norm layer.
