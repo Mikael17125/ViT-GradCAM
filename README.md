@@ -15,8 +15,8 @@ This repository contains code for implementing Grad-CAM (Gradient-weighted Class
 ## Installation
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your_username/grad-cam.git
-   cd grad-cam
+   git clone https://github.com/Mikael17125/ViT-GradCAM.git
+   cd ViT-GradCAM
    ```
 
 ## Usage
