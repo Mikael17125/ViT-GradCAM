@@ -1,0 +1,6 @@
+timm==1.0.7
+scikit-image==0.24.0
+torch-summary==1.4.5
+opencv-python==4.10.0.84
+huggingface_hub==0.24.0
+charset-normalizer==3.3.2

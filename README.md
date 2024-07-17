@@ -18,6 +18,27 @@ This repository contains code for implementing Grad-CAM (Gradient-weighted Class
    cd ViT-GradCAM
    ```
 
+## Environment
+1. Create the conda environment
+   ```bash
+   conda create --name vit-grad-cam python=3.10
+   ```
+
+2. Activate the environment
+   ```bash
+   conda activate vit-grad-cam
+   ```
+
+3. Install the PyTorch
+   ```bash
+   conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+   ```
+
+4. Install additional dependency
+   ```bash
+   pip install -r requirements.txt   
+   ```
+
 ## Usage
 1. Ensure that your image is named `both.png` and placed in the root directory of the repository.
 
@@ -41,6 +62,3 @@ This repository contains code for implementing Grad-CAM (Gradient-weighted Class
 
 ## References
 - Ramprasaath R. Selvaraju, Michael Cogswell, Abhishek Das, Ramakrishna Vedantam, Devi Parikh, and Dhruv Batra. "Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization." In *Proceedings of the IEEE International Conference on Computer Vision (ICCV)*, 2017.
-  
-```
-Feel free to adjust any parts as needed!
